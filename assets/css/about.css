@@ -1,0 +1,26 @@
+@charset "gb2312";
+body {
+    overflow: hidden;
+}
+.scroll {
+    display: flex;
+    overflow: scroll;
+    flex: none;
+    height: 100vh;
+    flex-flow: column nowrap;
+    scroll-snap-type: y mandatory;
+}
+.scroll>div{
+    scroll-snap-align: center;
+    flex: none;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#first {
+    background-color: lightpink;
+}
+#second {
+    background-color: lightsalmon;
+}

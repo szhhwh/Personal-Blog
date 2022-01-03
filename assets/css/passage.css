@@ -1,0 +1,20 @@
+@charset "utf-8";
+h2
+{
+	color: hsla(0,0%,0%,1.00)
+}
+
+h3
+{
+	padding: 0 0 6px 0
+}
+.btitle
+{
+	margin: 15px 0 0 0;
+	padding: 0 0 1px 0;
+}
+.video
+{
+	padding: 1%;
+	margin: 0 2%;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>随机抽取</title>
+    <link rel="shortcut icon" type="image/x-icon" href="icon.png" />
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="assets/js/radom.js"></script>
+</head>
+
+<body>
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid" style="margin-left: 20%">
+                <a class="navbar-brand" href="index.html">
+                    <img src="icon.png" alt="navbar-icon" width="24" height="24"
+                        class="d-inline-block align-text-top" />
+                    狮子耗耗
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" aria-current="page" href="index.html">首页</a>
+                        <a class="nav-link" href="daily.html">泠鸢的迷惑日记</a>
+                        <a class="nav-link" href="music.html">泠鸢唱的歌</a>
+                        <a class="nav-link" href="live.html">直播精剪</a>
+                        <a class="nav-link" href="about.html">关于我</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="fixed-bottom" style="margin: 1%;">
+        <p class="h4" id="times" style="display: flex; justify-content: right;">Made By 狮子耗耗</p>
+    </div>
+    <div class="fixed-bottom" style="margin: 1%;">
+        <button type="button" class="btn btn-light modal-button h4" data-bs-toggle="modal" data-bs-target="#myModal">
+            使用说明
+        </button>
+    </div>
+    <div class="main container-fluid">
+        <div class="text-center row">
+            <p class="display-1" id="text">学号抽取</p>
+            <p id="record" class="h4">已抽取学号</p>
+        </div>
+        <div class="num row">
+            <div class="col-4">
+                <p>最小值</p>
+                <input type="number" min="1" placeholder="最小数字" class="text-center" id="min" value="1" />
+            </div>
+            <div class="col-4">
+                <p>最大值</p>
+                <input type="number" max="58" placeholder="最大数字" class="text-center" id="max" value="58" />
+            </div>
+            <div class="col-4">
+                <p>抽取次数</p>
+                <input type="number" max="58" placeholder="抽取次数" class="text-center" id="frequency" value="1" />
+            </div>
+        </div>
+        <div class="num row">
+            <div class="col-6">
+                <p>设置抽取学号</p>
+                <input type="number" max="58" placeholder="要抽取的学号" class="text-center" id="add" />
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <select onchange="select()" class="col-12">
+                        <option>范围抽取</option>
+                        <option>指定学号抽取</option>
+                    </select>
+                    <div class="row">
+                        <button onclick="add()" class="col-6">添加</button>
+                        <button onclick="resest()" class="col-6">重置</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="h4" id="arry">要抽取的学号</div>
+        </div>
+        <div>
+            <button onclick="compute()">抽取</button>
+            <button onclick="reset()">重置</button>
+        </div>
+    </div>
+
+    <!-- 模态框 -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <h4 class="modal-title">抽取器使用说明</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- 模态框内容 -->
+                <div class="modal-body">
+                    生成器共有两种模式可供选择：1、范围抽取模式；2、指定学号抽取模式<br>
+                    范围抽取模式：可以抽取最大值和最小值（包括）以内的随机数，直接点击抽取即可生成随机学号<br>
+                    指定学号抽取模式：在“设置抽取学号”一栏输入要抽取的学号，点击添加即可添加到待抽取列表。点击抽取按钮即可在输入的学号中进行抽取。添加一旁的重置按钮可以一键清除已经输入的学号。
+                </div>
+
+                <!-- 模态框底部 -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<style type="text/css" onload="welcome()">
+    .main {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .num {
+        margin: 20px 0;
+        display: flex;
+    }
+
+    input {
+        border-radius: 2px;
+    }
+
+    button {
+        width: 100px;
+        height: 50px;
+        border-radius: 5px;
+        background-color: white;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: rgba(138, 138, 138, 0.233);
+        transition: background-color 0.3s;
+    }
+
+    .modal-button {
+        width: auto;
+        height: auto;
+    }
+</style>
+
+</html>

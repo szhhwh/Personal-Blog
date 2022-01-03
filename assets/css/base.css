@@ -1,0 +1,28 @@
+body {
+    line-height: inherit;
+    background: url(../../images/background.png);
+}
+img {
+    border: 0;
+    display: block;
+}
+a:link, a:visited, a:active {
+    text-decoration: none;
+    color: hsla(0, 0%, 100%, 1.00)
+}
+a:hover {
+    text-decoration: none;
+    color: hsla(0, 0%, 95%, 1.00);
+}
+.navigation-bar {
+    box-shadow: 1px 1px 5px 1px hsla(323, 100%, 73%, 0.65)
+}
+footer {
+    margin: auto;
+    overflow: auto;
+    text-align: center;
+    padding: 10px 0;
+}
+header {
+    overflow: auto
+}

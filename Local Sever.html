@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Local Port</title>
+</head>
+<script>
+	function buttonclick() {
+		var x, text;
+		x = document.getElementById("link").value;
+		link="http://127.0.0.1:"
+		window.open(link.concat(x));
+	}
+</script>
+<body>
+	<div class="text">
+		<div class="context">
+			<h1>Local Port</h1>
+				<input type="number" min="0" placeholder="输入端口号" autofocus autocomplete="on"
+				class="text-center" required id="link" name="output"><br>
+			<button onclick="buttonclick()" type="button">访问</button>
+		</div>
+	</div>
+</body>
+<style type="text/css">
+	body {
+		background-color: #212529;
+		margin: 0;
+        padding: 0;
+	}
+	.text {
+		height: 100vh;
+		color: aliceblue;
+		text-align: center;
+		font-size: 40px;
+        display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.text-center{
+		text-align: center;
+	}
+	#main {
+		margin: auto;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	}
+	input {
+		margin: 20px;
+		border-radius: 20px;
+		height: 60px;
+		font-size: 24px;
+	}
+	button{
+		width: 200px;
+		height: 70px;
+		border-radius: 20px;
+		margin: 2em auto;
+		font-size: 24px;
+	}
+</style>
+</html>

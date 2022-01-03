@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test</title>
+</head>
+
+<body>
+    <script>
+        function ReadFile(data) {
+            console.log(data)
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            ReadFile(xhr.responseText);
+
+        };
+        try {
+            xhr.open("get", "C:\\Users\\狮子耗耗\\Documents\\Personal blog\\assets\\daily.txt", true);
+            xhr.send();
+        }
+        catch (ex) {
+            console.log("catch")
+            ReadFile(ex.message);
+        }   
+    </script>
+    <p id="text">123</p>
+</body>
+
+</html>
