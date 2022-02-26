@@ -1,34 +1,44 @@
-var record = [];//结果记录
+var record = [],arry = [];//结果记录&添加的数字
 var visit = document.cookie;//浏览器保存的cookies获取
-var arry = [];
 var mode = 1;//选择抽取模式，1范围抽取；2指定学号抽取；3排除学号抽取
+
 function compute() {
     var frequency = document.getElementById("frequency").value;//抽取次数
-    var max,min,num,n;
+    var max,min,n,num;
 
-    function random(max,min) {
-        return parseInt(Math.floor(Math.random() * (max - min + 1) + min));
-    }
-
-    function match() {//计算模块
+    function match() {
+        //计算模块
         num = random(max,min);
+        function random(max,min) {
+            return parseInt(Math.floor(Math.random() * (max - min + 1) ) + min);
+        }
         if (mode==1){
+            num = random(max,min);
             while (record.includes(num)) {
                 num = random(max,min);
             }
             return parseInt(num);
         }
         else if (mode==2){
-            num = random(max,1);
+            num = random(max-1,0);
             while (record.includes(arry[num])) {
-                num = random();
+                num = random(max-1,0);
+            }
+            return parseInt(num);
+        }
+        else if (mode==3){
+            num = random(max,min);
+            while (record.includes(num)) {
+                num = random(max,min);
             }
             return parseInt(num);
         }
     }
 
-    function output() {//输出记录的数字
-        document.getElementById("text").innerText = num;
+    function output() {
+        //输出大数字
+        document.getElementById("text").innerText = record[record.length-1];
+        //输出记录数组
         var text = "";
         for (i = 0; i < record.length; i++) {
             text += record[i] + "         ";
@@ -36,12 +46,10 @@ function compute() {
         document.getElementById("record").innerText = text;
     }
 
+    //计算过程
     if (mode == 1) {
         max = parseInt(document.getElementById("max").value);
         min = parseInt(document.getElementById("min").value);
-        for (s = 0; s < frequency; s++) {
-            record.push(match());
-        }
         if (record.length > (max - min)) {
             var r = confirm("已经抽取完毕所有数字" + "\n" + "按下确认重置抽取");
             if (r == true) {
@@ -49,10 +57,13 @@ function compute() {
             }
         }
         else {
+            for (s = 0; s < frequency; s++) {
+                record.push(match());
+            }
             output();
         }
     }
-    else if (mode == 2 && arry == true) {
+    else if (mode == 2 && Array.prototype.isPrototypeOf(arry) && arry.length !== 0) {
         max = parseInt(arry.length);
         if (record.length >= max) {
             var r = confirm("已经抽取完毕所有数字" + "\n" + "按下确认重置抽取");
@@ -65,12 +76,12 @@ function compute() {
                 n = match();
                 record.push(arry[n]);
             }
-            document.getElementById("text").innerText = arry[n];
             output();
         }
     }
-    else if (mode == 3 && arry == true){
-        max = parseInt(arry.length);
+    else if (mode == 3 && Array.prototype.isPrototypeOf(arry) && arry.length !== 0){
+        max = parseInt(document.getElementById("max").value);
+        min = parseInt(document.getElementById("min").value);
         if (record.length >= max) {
             var r = confirm("已经抽取完毕所有数字" + "\n" + "按下确认重置抽取");
             if (r == true) {
@@ -80,9 +91,8 @@ function compute() {
         else {
             for (s = 0; s < frequency; s++) {
                 n = match();
-                record.push(arry[n]);
+                record.push(n);
             }
-            document.getElementById("text").innerText = arry[n];
             output();
         }
     }

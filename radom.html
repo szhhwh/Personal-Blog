@@ -9,6 +9,7 @@
     <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="assets/js/radom.js"></script>
 </head>
+
 <body>
     <header class="fixed-top">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -35,10 +36,12 @@
             </div>
         </nav>
     </header>
-    <div class="fixed-bottom" style="margin: 1%;">
-        <p class="h4" id="times" style="display: flex; justify-content: right;">Made By 狮子耗耗</p>
+    <div class="fixed-bottom" style="margin: 1%">
+        <p class="h4" id="times" style="display: flex; justify-content: right">
+            Made By 狮子耗耗
+        </p>
     </div>
-    <div class="fixed-bottom" style="margin: 1%;">
+    <div class="fixed-bottom" style="margin: 1%">
         <button type="button" class="btn btn-light modal-button h4" data-bs-toggle="modal" data-bs-target="#myModal">
             使用说明
         </button>
@@ -100,13 +103,15 @@
                 </div>
                 <!-- 模态框内容 -->
                 <div class="modal-body">
-                    生成器共有两种模式可供选择：1、范围抽取模式；2、指定学号抽取模式<br>
-                    范围抽取模式：可以抽取最大值和最小值（包括）以内的随机数，直接点击抽取即可生成随机学号<br>
+                    生成器共有两种模式可供选择：1、范围抽取模式；2、指定学号抽取模式<br />
+                    范围抽取模式：可以抽取最大值和最小值（包括）以内的随机数，直接点击抽取即可生成随机学号<br />
                     指定学号抽取模式：在“设置抽取学号”一栏输入要抽取的学号，点击添加即可添加到待抽取列表。点击抽取按钮即可在输入的学号中进行抽取。添加一旁的重置按钮可以一键清除已经输入的学号。
                 </div>
                 <!-- 模态框底部 -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                        关闭
+                    </button>
                 </div>
             </div>
         </div>
@@ -114,77 +119,35 @@
 </body>
 
 <style type="text/css" onload="welcome()">
-
     .main {
-
         height: 100vh;
-
         display: flex;
-
         align-items: center;
-
         justify-content: center;
-
         flex-direction: column;
-
     }
-
-
-
     .num {
-
         margin: 20px 0;
-
         display: flex;
-
     }
-
-
-
     input {
-
         border-radius: 2px;
-
     }
-
-
-
     button {
-
         width: 100px;
-
         height: 50px;
-
         border-radius: 5px;
-
         background-color: white;
-
         transition: background-color 0.3s;
-
     }
-
-
-
     button:hover {
-
         background-color: rgba(138, 138, 138, 0.233);
 
         transition: background-color 0.3s;
-
     }
-
-
-
     .modal-button {
-
         width: auto;
-
         height: auto;
-
     }
-
 </style>
-
-
-
 </html>
