@@ -28,7 +28,7 @@ function compute() {
         }
         else if (mode == 3) {
             num = random(max, min);
-            while (record.includes(num) == true || arry.includes(num) == true) {
+            while (record.includes(num) || arry.includes(num)) {
                 num = random(max, min);
             }
             return parseInt(num);
@@ -82,7 +82,7 @@ function compute() {
     else if (mode == 3 && Array.prototype.isPrototypeOf(arry) && arry.length !== 0) {
         max = parseInt(document.getElementById("max").value);
         min = parseInt(document.getElementById("min").value);
-        if (record.length >= max) {
+        if (record.length + arry.length >= max) {
             var r = confirm("已经抽取完毕所有数字" + "\n" + "按下确认重置抽取");
             if (r == true) {
                 reset();
@@ -101,20 +101,20 @@ function compute() {
     }
 }
 function add() {
-    var max = parseInt(document.getElementById("max").value), min = parseInt(document.getElementById("min").value);
-    var numb = document.getElementById("add").value;
-    if (numb !== "" && numb >= min && numb <= max) {
+    max = parseInt(document.getElementById("max").value), min = parseInt(document.getElementById("min").value);
+    var numb = parseInt(document.getElementById("add").value);
+    if (numb >= min && numb <= max) {
         if (arry.includes(numb) == false) {
             arry.push(numb);
+            var text = "";
+            document.getElementById("arry").innerText = "";
+            for (i = 0; i < arry.length; i++) {
+                text = arry[i];
+                document.getElementById("arry").insertAdjacentHTML('beforeend', '<a onclick="delect()">' + text + "         " + '</a>');
+            }
         }
         else {
             alert("请不要重复输入同一数值");
-        }
-        var text = "";
-        document.getElementById("arry").innerText = "";
-        for (i = 0; i < arry.length; i++) {
-            text = arry[i];
-            document.getElementById("arry").insertAdjacentHTML('beforeend', '<a onclick="delect()">' + text + "         " + '</a>');
         }
     }
     else {
