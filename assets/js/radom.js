@@ -1,35 +1,35 @@
-var record = [],arry = [];//结果记录&添加的数字
+var record = [], arry = [];//结果记录&添加的数字
 var visit = document.cookie;//浏览器保存的cookies获取
 var mode = 1;//选择抽取模式，1范围抽取；2指定学号抽取；3排除学号抽取
 
 function compute() {
     var frequency = document.getElementById("frequency").value;//抽取次数
-    var max,min,n,num;
+    var max, min, num;
 
     function match() {
         //计算模块
-        num = random(max,min);
-        function random(max,min) {
-            return parseInt(Math.floor(Math.random() * (max - min + 1) ) + min);
+        num = random(max, min);
+        function random(max, min) {
+            return parseInt(Math.floor(Math.random() * (max - min + 1)) + min);
         }
-        if (mode==1){
-            num = random(max,min);
+        if (mode == 1) {
+            num = random(max, min);
             while (record.includes(num)) {
-                num = random(max,min);
+                num = random(max, min);
             }
             return parseInt(num);
         }
-        else if (mode==2){
-            num = random(max-1,0);
+        else if (mode == 2) {
+            num = random(max - 1, 0);
             while (record.includes(arry[num])) {
-                num = random(max-1,0);
+                num = random(max - 1, 0);
             }
             return parseInt(num);
         }
-        else if (mode==3){
-            num = random(max,min);
-            while (record.includes(num)) {
-                num = random(max,min);
+        else if (mode == 3) {
+            num = random(max, min);
+            while (record.includes(num) == true || arry.includes(num) == true) {
+                num = random(max, min);
             }
             return parseInt(num);
         }
@@ -37,7 +37,7 @@ function compute() {
 
     function output() {
         //输出大数字
-        document.getElementById("text").innerText = record[record.length-1];
+        document.getElementById("text").innerText = record[record.length - 1];
         //输出记录数组
         var text = "";
         for (i = 0; i < record.length; i++) {
@@ -73,13 +73,13 @@ function compute() {
         }
         else {
             for (s = 0; s < frequency; s++) {
-                n = match();
-                record.push(arry[n]);
+                num = match();
+                record.push(arry[num]);
             }
             output();
         }
     }
-    else if (mode == 3 && Array.prototype.isPrototypeOf(arry) && arry.length !== 0){
+    else if (mode == 3 && Array.prototype.isPrototypeOf(arry) && arry.length !== 0) {
         max = parseInt(document.getElementById("max").value);
         min = parseInt(document.getElementById("min").value);
         if (record.length >= max) {
