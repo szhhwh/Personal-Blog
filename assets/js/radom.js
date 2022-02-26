@@ -1,21 +1,37 @@
-var record = [];
-var visit = document.cookie;
+var record = [];//结果记录
+var visit = document.cookie;//浏览器保存的cookies获取
 var arry = [];
-var choise = "ran";
+var choise = 1;//选择抽取模式，1范围抽取；2指定学号抽取；3排除学号抽取
 function compute() {
-    if (choise == "ran") {
-        var frequency = document.getElementById("frequency").value;
-        var max = parseInt(document.getElementById("max").value), min = parseInt(document.getElementById("min").value);
-        function random() {
-            x = Math.floor(Math.random() * (max - min + 1) + min);
-            return parseInt(x);
+    var frequency = document.getElementById("frequency").value;//抽取次数
+    var max,min;
+
+    function random(max,min) {
+        return parseInt(Math.floor(Math.random() * (max - min + 1) + min));
+    }
+
+    function match() {//计算模块
+        num = random(max,min);
+        while (record.includes(num)) {
+            num = random(max,min);
         }
-        function match() {
-            num = random();
-            while (record.includes(num)) {
-                num = random();
-            }
-            return parseInt(num);
+        return parseInt(num);
+    }
+
+    function output() {//输出记录的数字
+        var text = "";
+        for (i = 0; i < record.length; i++) {
+            text += record[i] + "         ";
+        }
+        document.getElementById("text").innerText = record[-1];
+        document.getElementById("record").innerText = text;
+    }
+
+    if (choise == 1) {
+        max = parseInt(document.getElementById("max").value);
+        min = parseInt(document.getElementById("min").value);
+        for (s = 0; s < frequency; s++) {
+            record.push(match());
         }
         if (record.length > (max - min)) {
             var r = confirm("已经抽取完毕所有数字" + "\n" + "按下确认重置抽取");
@@ -24,19 +40,10 @@ function compute() {
             }
         }
         else {
-            for (s = 0; s < frequency; s++) {
-                record.push(match());
-                document.getElementById("text").innerText = num;
-            }
-            var text = "";
-            for (i = 0; i < record.length; i++) {
-                text += record[i] + "         ";
-            }
-            document.getElementById("record").innerText = text;
+            output();
         }
     }
-    else if (choise == "spec" && arry != false) {
-        var frequency = document.getElementById("frequency").value;
+    else if (choise == 2 && arry != false) {
         var max = parseInt(arry.length);
         var num = 0;
         if (record.length >= max) {
@@ -62,11 +69,7 @@ function compute() {
                 record.push(arry[n]);
             }
             document.getElementById("text").innerText = arry[n];
-            var text = "";
-            for (i = 0; i < record.length; i++) {
-                text += record[i] + "         ";
-            }
-            document.getElementById("record").innerText = text;
+            output();
         }
     }
     else {
@@ -98,14 +101,11 @@ function resest() {
     document.getElementById("arry").innerText = "要抽取的学号";
     arry = [];
 }
-function select() {
+
+function select(obj) {//改变抽取模式
     reset();
-    if (choise == "ran") {
-        choise = "spec";
-    }
-    else {
-        choise = "ran";
-    }
+    var val = obj.value;
+    choise = val;
 }
 function reset() {
     record = [];
@@ -120,5 +120,4 @@ function welcome() {
 }
 function delect() {
     alert("单个删除功能正在开发中");
-    //alert(document.getElementById("yue").outerText);
 }
