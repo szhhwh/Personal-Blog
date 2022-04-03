@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--CSS引用-->
+    <link href="/assets/css/timer.css" rel="stylesheet" />
+    <head>
+        <title>计时器</title>
+    </head>
+    <body>
+        <div class="main">
+            <div class="back">
+                <div class="back-left">
+                </div>
+                <div class="back-right">
+                </div>
+            </div>
+            <div class="big-number">
+                <p id="time-display">TEST</p>
+            </div>
+            <div class="front">
+                <select onchange="toggle()" id="select">
+                    <option value="1">一分半</option>
+                    <option value="2">两分半</option>
+                    <option value="3">三分钟</option>
+                    <option value="4">四分钟</option>
+                </select>
+                <button onclick="start()">开始</button>
+                <button onclick="pause()">暂停</button>
+                <button onclick="stop()">结束</button>
+                <button onclick="test()">测试</button>
+                <p id="lefttime"></p>
+            </div>
+        </div>
+    </body>
+    <script src="/assets/js/timer.js"></script>
+</html>
