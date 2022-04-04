@@ -1,43 +1,75 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-body{
+
+body {
     overflow: hidden;
 }
-.back{
+
+.back {
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: -1;
 }
-.back-left{
+
+.back-left {
     background-color: rgb(1, 70, 158);
     float: left;
     height: 100%;
     width: 50%;
 }
-.back-right{
+
+.back-right {
     background-color: rgba(238, 28, 39, 0.863);
     float: right;
     height: 100%;
     width: 50%;
 }
-.front{
+
+.big-number-left {
     position: absolute;
+    width: 50%;
+    height: 100%;
     z-index: 0;
 }
-.big-number{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-}
-.big-number > p{
+
+.big-number-left>p {
     font-size: 20rem;
     color: white;
     display: flex;
     height: 100%;
-    flex: none;
     align-items: center;
     justify-content: center;
+}
+
+.timer-right {
+    margin-left: 50%;
+}
+
+.big-number-right {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    z-index: 0;
+}
+
+.big-number-right>p {
+    font-size: 20rem;
+    color: white;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.control {
+    position: absolute;
+    z-index: 2;
+}
+
+.control-right {
+    position: absolute;
+    z-index: 2;
 }

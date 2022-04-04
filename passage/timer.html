@@ -1,35 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!--CSS引用-->
+
+<head>
+    <title>计时器</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="/icon.png" />
     <link href="/assets/css/timer.css" rel="stylesheet" />
-    <head>
-        <title>计时器</title>
-    </head>
-    <body>
-        <div class="main">
-            <div class="back">
-                <div class="back-left">
-                </div>
-                <div class="back-right">
-                </div>
+</head>
+
+<body>
+    <div class="main">
+        <div class="back">
+            <div class="back-left">
             </div>
-            <div class="big-number">
-                <p id="time-display">TEST</p>
+            <div class="back-right">
             </div>
-            <div class="front">
-                <select onchange="toggle()" id="select">
+        </div>
+        <div class="timer-left">
+            <div class="big-number-left">
+                <p id="time-display-left" style="color: white;">90s</p>
+            </div>
+            <div class="control">
+                <select onchange="toggle1()" id="select1">
                     <option value="1">一分半</option>
                     <option value="2">两分半</option>
                     <option value="3">三分钟</option>
                     <option value="4">四分钟</option>
                 </select>
-                <button onclick="start()">开始</button>
-                <button onclick="pause()">暂停</button>
-                <button onclick="stop()">结束</button>
-                <button onclick="test()">测试</button>
-                <p id="lefttime"></p>
+                <button onclick="start1()">开始</button>
+                <button onclick="pause1()">暂停</button>
+                <button onclick="stop1()">结束</button>
             </div>
         </div>
-    </body>
-    <script src="/assets/js/timer.js"></script>
+        <div class="timer-right">
+            <div class="big-number-right">
+                <p id="time-display-right" style="color: white;">90s</p>
+            </div>
+            <div class="control-right">
+                <select onchange="toggle2()" id="select2">
+                    <option value="1">一分半</option>
+                    <option value="2">两分半</option>
+                    <option value="3">三分钟</option>
+                    <option value="4">四分钟</option>
+                </select>
+                <button onclick="start2()">开始</button>
+                <button onclick="pause2()">暂停</button>
+                <button onclick="stop2()">结束</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/assets/js/timer.js"></script>
 </html>
