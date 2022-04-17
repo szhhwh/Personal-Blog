@@ -28,7 +28,7 @@
                     <option value="3">三分钟</option>
                     <option value="4">四分钟</option>
                 </select>
-                <button onclick="start1()">开始</button>
+                <button onclick="start1()" id="start-left">开始</button>
                 <button onclick="pause1()">暂停</button>
                 <button onclick="stop1()">结束</button>
             </div>
@@ -52,4 +52,32 @@
     </div>
 </body>
 <script src="/assets/js/timer.js"></script>
+<script>
+    document.onkeydown = keyDown;
+    function keyDown(event) {
+        var event = event || window.event;
+        switch (event.keyCode) {
+            case 83:
+                start1();
+                break;
+            case 68:
+                pause1();
+                break;
+            case 70:
+                stop1();
+                break;
+            case 74:
+                start2();
+                break;
+            case 75:
+                pause2();
+                break;
+            case 76:
+                stop2();
+                break;
+        }
+        return false
+    }
+</script>
+
 </html>

@@ -55,10 +55,15 @@ function start1() {
     }
 }
 function pause1() {
-    clearInterval(nIntervId1);
-    clearInterval(clock1);
-    lock1 = false;
-    suspend1 = true;
+    if (lock1==true) {
+        clearInterval(nIntervId1);
+        clearInterval(clock1);
+        lock1 = false;
+        suspend1 = true;
+    }
+    else {
+        return
+    }
 }
 function stop1() {
     clearInterval(nIntervId1);
@@ -129,17 +134,22 @@ function start2() {
     }
 }
 function pause2() {
-    clearInterval(nIntervId2);
-    clearInterval(clock2);
-    lock2 = false;
-    suspend2 = true;
+    if (lock2==true) {
+        clearInterval(nIntervId2);
+        clearInterval(clock2);
+        lock2 = false;
+        suspend2 = true;
+    }
+    else {
+        return
+    }
 }
 function stop2() {
     clearInterval(nIntervId2);
     clearInterval(clock2);
     lock2 = false;
     audio_lock2 = false
-    audio_lock4 = true
+    audio_lock4 = false
     timems2 = 0;
     suspend2 = false;
     document.getElementById("time-display-right").style.color = "white"
