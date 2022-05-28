@@ -9,16 +9,24 @@ function toggle1() {
             timeset1 = 9000;
             break;
         case (value == 2):
+            document.getElementById("time-display-left").innerText = "120s";
+            timeset1 = 12000;
+            break;
+        case (value == 3):
             document.getElementById("time-display-left").innerText = "150s";
             timeset1 = 15000;
             break;
-        case (value == 3):
+        case (value == 4):
             document.getElementById("time-display-left").innerText = "180s";
             timeset1 = 18000;
             break;
-        case (value == 4):
+        case (value == 5):
             document.getElementById("time-display-left").innerText = "240s";
             timeset1 = 24000;
+            break;
+        case (value == 6):
+            document.getElementById("time-display-left").innerText = "300s";
+            timeset1 = 30000;
             break;
     }
 }
@@ -85,19 +93,27 @@ function toggle2() {
     switch (value != null) {
         case (value == 1):
             document.getElementById("time-display-right").innerText = "90s";
-            timeset2 = 9000;
+            timeset1 = 9000;
             break;
         case (value == 2):
-            document.getElementById("time-display-right").innerText = "150s";
-            timeset2 = 15000;
+            document.getElementById("time-display-right").innerText = "120s";
+            timeset1 = 12000;
             break;
         case (value == 3):
-            document.getElementById("time-display-right").innerText = "180s";
-            timeset2 = 18000;
+            document.getElementById("time-display-right").innerText = "150s";
+            timeset1 = 15000;
             break;
         case (value == 4):
+            document.getElementById("time-display-right").innerText = "180s";
+            timeset1 = 18000;
+            break;
+        case (value == 5):
             document.getElementById("time-display-right").innerText = "240s";
-            timeset2 = 24000;
+            timeset1 = 24000;
+            break;
+        case (value == 6):
+            document.getElementById("time-display-right").innerText = "300s";
+            timeset1 = 30000;
             break;
     }
 }
