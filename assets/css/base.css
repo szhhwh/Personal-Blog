@@ -37,6 +37,7 @@ header {
 }
 #totop:hover {
 	background-color: blanchedalmond;
+    border-radius: 20%;
 	transition: background-color 0.3s;
 	z-index: 100;
 }
