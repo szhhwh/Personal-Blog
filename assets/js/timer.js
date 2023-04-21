@@ -3,6 +3,7 @@ var timeset1 = 9000, nIntervId1, clock1, timems1 = 0, suspend1 = false, lock1 = 
 
 function toggle1() {
     var value = parseInt(document.getElementById("select1").value);
+    timems1 = 0;
     switch (value != null) {
         case (value == 1):
             document.getElementById("time-display-left").innerText = "90s";
@@ -46,7 +47,7 @@ function start1() {
                 document.getElementById("time-display-left").style.color = "white";
             }
             else if (timeset1 - timems1 < 0) {
-                document.getElementById("time-display-left").style.color = "##70FB65";
+                document.getElementById("time-display-left").style.color = "red";
                 if (audio_lock1 == false) {
                     audio_timeup1.play();
                     audio_lock1 = true;
@@ -63,7 +64,7 @@ function start1() {
     }
 }
 function pause1() {
-    if (lock1==true) {
+    if (lock1 == true) {
         clearInterval(nIntervId1);
         clearInterval(clock1);
         lock1 = false;
@@ -90,30 +91,31 @@ var timeset2 = 9000, nIntervId2, clock2, timems2 = 0, suspend2 = false, lock2 = 
 
 function toggle2() {
     var value = parseInt(document.getElementById("select2").value);
+    timems2 = 0;
     switch (value != null) {
         case (value == 1):
             document.getElementById("time-display-right").innerText = "90s";
-            timeset1 = 9000;
+            timeset2 = 9000;
             break;
         case (value == 2):
             document.getElementById("time-display-right").innerText = "120s";
-            timeset1 = 12000;
+            timeset2 = 12000;
             break;
         case (value == 3):
             document.getElementById("time-display-right").innerText = "150s";
-            timeset1 = 15000;
+            timeset2 = 15000;
             break;
         case (value == 4):
             document.getElementById("time-display-right").innerText = "180s";
-            timeset1 = 18000;
+            timeset2 = 18000;
             break;
         case (value == 5):
             document.getElementById("time-display-right").innerText = "240s";
-            timeset1 = 24000;
+            timeset2 = 24000;
             break;
         case (value == 6):
             document.getElementById("time-display-right").innerText = "300s";
-            timeset1 = 30000;
+            timeset2 = 30000;
             break;
     }
 }
@@ -133,7 +135,7 @@ function start2() {
                 document.getElementById("time-display-right").style.color = "white";
             }
             else if (timeset2 - timems2 < 0) {
-                document.getElementById("time-display-right").style.color = "##70FB65";
+                document.getElementById("time-display-right").style.color = "blue";
                 if (audio_lock2 == false) {
                     audio_timeup2.play();
                     audio_lock2 = true;
@@ -150,7 +152,7 @@ function start2() {
     }
 }
 function pause2() {
-    if (lock2==true) {
+    if (lock2 == true) {
         clearInterval(nIntervId2);
         clearInterval(clock2);
         lock2 = false;
