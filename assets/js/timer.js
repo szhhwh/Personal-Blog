@@ -1,8 +1,8 @@
-var audio_timeup1 = new Audio("/audio/timeup.mp3"), audio_timetoup1 = new Audio("/audio/timetoup.mp3");
-var timeset1 = 9000, nIntervId1, clock1, timems1 = 0, suspend1 = false, lock1 = false, audio_lock1 = false, audio_lock3 = false;
+let audio_timeup1 = new Audio("/audio/timeup.mp3"), audio_timetoup1 = new Audio("/audio/timetoup.mp3");
+let timeset1 = 9000, nIntervId1, clock1, timems1 = 0, suspend1 = false, lock1 = false, audio_lock1 = false, audio_lock3 = false;
 
 function toggle1() {
-    var value = parseInt(document.getElementById("select1").value);
+    let value = parseInt(document.getElementById("select1").value);
     timems1 = 0;
     switch (value != null) {
         case (value == 1):
@@ -36,7 +36,7 @@ function timer1() {
 }
 function start1() {
     if (lock1 == false) {
-        var lefttime1;
+        let lefttime1;
         clock1 = setInterval(timer1, 10);
         function output1() {
             if (timeset1 - timems1 >= 0) {
@@ -86,11 +86,11 @@ function stop1() {
     toggle1();
 }
 
-var audio_timeup2 = new Audio("/audio/timeup.mp3"), audio_timetoup2 = new Audio("/audio/timetoup.mp3");
-var timeset2 = 9000, nIntervId2, clock2, timems2 = 0, suspend2 = false, lock2 = false, audio_lock2 = false, audio_lock4 = false;
+let audio_timeup2 = new Audio("/audio/timeup.mp3"), audio_timetoup2 = new Audio("/audio/timetoup.mp3");
+let timeset2 = 9000, nIntervId2, clock2, timems2 = 0, suspend2 = false, lock2 = false, audio_lock2 = false, audio_lock4 = false;
 
 function toggle2() {
-    var value = parseInt(document.getElementById("select2").value);
+    let value = parseInt(document.getElementById("select2").value);
     timems2 = 0;
     switch (value != null) {
         case (value == 1):
@@ -124,7 +124,7 @@ function timer2() {
 }
 function start2() {
     if (lock2 == false) {
-        var lefttime2;
+        let lefttime2;
         clock2 = setInterval(timer2, 10);
         function output2() {
             if (timeset2 - timems2 >= 0) {

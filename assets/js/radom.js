@@ -1,10 +1,10 @@
-var record = [], arry = [];//结果记录&添加的数字
-var visit = document.cookie;//浏览器保存的cookies获取
-var mode = 1;//选择抽取模式，1范围抽取；2指定学号抽取；3排除学号抽取
+let record = [], arry = [];//结果记录&添加的数字
+let visit = document.cookie;//浏览器保存的cookies获取
+let mode = 1;//选择抽取模式，1范围抽取；2指定学号抽取；3排除学号抽取
 
 function compute() {
-    var frequency = document.getElementById("frequency").value;//抽取次数
-    var max, min, num;
+    let frequency = document.getElementById("frequency").value;//抽取次数
+    let max, min, num;
 
     function match() {
         //计算模块
@@ -39,7 +39,7 @@ function compute() {
         //输出大数字
         document.getElementById("text").innerText = record[record.length - 1];
         //输出记录数组
-        var text = "";
+        let text = "";
         for (i = 0; i < record.length; i++) {
             text += record[i] + "         ";
         }
@@ -51,7 +51,7 @@ function compute() {
         max = parseInt(document.getElementById("max").value);
         min = parseInt(document.getElementById("min").value);
         if (record.length > (max - min)) {
-            var r = confirm("已经抽取完毕所有数字" + "\n" + "按下确认重置抽取");
+            let r = confirm("已经抽取完毕所有数字" + "\n" + "按下确认重置抽取");
             if (r == true) {
                 reset();
             }
@@ -66,7 +66,7 @@ function compute() {
     else if (mode == 2 && Array.prototype.isPrototypeOf(arry) && arry.length !== 0) {
         max = parseInt(arry.length);
         if (record.length >= max) {
-            var r = confirm("已经抽取完毕所有数字" + "\n" + "按下确认重置抽取");
+            let r = confirm("已经抽取完毕所有数字" + "\n" + "按下确认重置抽取");
             if (r == true) {
                 reset();
             }
@@ -83,7 +83,7 @@ function compute() {
         max = parseInt(document.getElementById("max").value);
         min = parseInt(document.getElementById("min").value);
         if (record.length + arry.length >= max) {
-            var r = confirm("已经抽取完毕所有数字" + "\n" + "按下确认重置抽取");
+            let r = confirm("已经抽取完毕所有数字" + "\n" + "按下确认重置抽取");
             if (r == true) {
                 reset();
             }
@@ -102,11 +102,11 @@ function compute() {
 }
 function add() {
     max = parseInt(document.getElementById("max").value), min = parseInt(document.getElementById("min").value);
-    var numb = parseInt(document.getElementById("add").value);
+    let numb = parseInt(document.getElementById("add").value);
     if (numb >= min && numb <= max) {
         if (arry.includes(numb) == false) {
             arry.push(numb);
-            var text = "";
+            let text = "";
             document.getElementById("arry").innerText = "";
             for (i = 0; i < arry.length; i++) {
                 text = arry[i];
@@ -128,7 +128,7 @@ function resest() {
 
 function select(obj) {//改变抽取模式
     reset();
-    var val = obj.value;
+    let val = obj.value;
     mode = val;
 }
 function reset() {
